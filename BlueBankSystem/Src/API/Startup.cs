@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API
+namespace BlueBank.System.Services.API
 {
     public class Startup
     {
