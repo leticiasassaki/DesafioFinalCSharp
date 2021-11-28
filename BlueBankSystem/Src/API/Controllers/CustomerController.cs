@@ -9,10 +9,8 @@ namespace BlueBank.System.Services.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
-    {
-       
-               
-
+    {    
+              
         [HttpGet]
         public Dictionary<Guid, string> Get()
         {
@@ -27,20 +25,39 @@ namespace BlueBank.System.Services.API.Controllers
         }
 
         [HttpPost]
-        public void Add([FromBody] AddCustomerRequest request)
+        public Guid Add([FromBody] AddCustomerRequest request)
         {
+            var id = Guid.NewGuid();
             CustomerRepository.Customers.Add(Guid.NewGuid(), request.Nome);
+            return id;
         }
 
+        [HttpDelete]
+        [Route("{id}")]
+        public void Remove([FromRoute]Guid id)
+        {
+            CustomerRepository.Customers.Remove(id);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public void Update([FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
+        {
+            request.id = id;
+            CustomerRepository.Customers[id] = request.Nome;
+        }
     }
-}
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace BlueBank.System.Services.API.Controllers
-{
     public class AddCustomerRequest
     {
         public string Nome { get; set; }
     }
+
+    public class UpdateCustomerRequest
+    {
+        public Guid id { get; set; }
+        public string Nome { get; set; }
+    }
+
 }
