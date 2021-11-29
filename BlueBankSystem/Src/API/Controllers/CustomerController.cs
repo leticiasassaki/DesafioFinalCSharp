@@ -12,39 +12,36 @@ namespace BlueBank.System.Services.API.Controllers
     {    
               
         [HttpGet]
-        public Dictionary<Guid, string> Get()
+        public IActionResult Get()
         {
-            return CustomerRepository.Customers;
+            return Ok(CustomerRepository.Customers);
         }
 
         [HttpGet]
         [Route("{id}")]
-        public string GetById([FromRoute] Guid id)
+        public IActionResult GetById([FromRoute] Guid id)
         {
-            return CustomerRepository.Customers[id];
+            return Ok();
         }
 
         [HttpPost]
-        public Guid Add([FromBody] AddCustomerRequest request)
+        public IActionResult Add([FromBody] AddCustomerRequest request)
         {
-            var id = Guid.NewGuid();
-            CustomerRepository.Customers.Add(Guid.NewGuid(), request.Nome);
-            return id;
+            return Created("", null);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public void Remove([FromRoute]Guid id)
+        public IActionResult Remove([FromRoute]Guid id)
         {
-            CustomerRepository.Customers.Remove(id);
+           return Ok();
         }
 
         [HttpPut]
         [Route("{id}")]
-        public void Update([FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
+        public IActionResult Update([FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
         {
-            request.id = id;
-            CustomerRepository.Customers[id] = request.Nome;
+            return Ok();
         }
     }
 
