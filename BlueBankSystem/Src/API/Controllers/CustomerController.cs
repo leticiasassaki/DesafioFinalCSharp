@@ -39,7 +39,7 @@ namespace BlueBank.System.Services.API.Controllers
         {
             var request = new GetCustomerByIdRequest() { Id = id };
 
-            var handler = new GetCustomerByIdQuery();
+            var handler = new GetCustomerByIdQuery(_repository);
             var response = handler.Handle(request);
 
             return Ok(response);

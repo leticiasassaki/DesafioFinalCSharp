@@ -17,12 +17,17 @@ namespace BlueBank.System.Data.Repositories
             _context = context;
         }
 
-        public void Add(Customer custumer)
+        public void Add(Customer customer)
         {
-            _context.Customers.Add(custumer);
+            _context.Customers.Add(customer);
             _context.SaveChanges();
         }
 
+       
 
+        public Customer GetById(Guid id)
+        {
+            return _context.Customers.Find(id);
+        }
     }
 }

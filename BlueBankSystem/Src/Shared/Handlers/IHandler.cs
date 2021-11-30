@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Domain.Shared.Handlers
 {
-    interface IHandler <TRequest, TResponse>
+    public interface IHandler <TRequest, TResponse>
     {
         TResponse Handle(TRequest request);
     }

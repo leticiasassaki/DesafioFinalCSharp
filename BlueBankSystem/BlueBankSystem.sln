@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Src\Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Src\Data\Data.csproj", "{6A6D5DFE-DD41-4378-BFCE-44F4C8587FB5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueBank.Sytem.Teste", "Src\BlueBank.Sytem.Teste\BlueBank.Sytem.Teste.csproj", "{0B809B89-B473-4314-8937-851C002457DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{6A6D5DFE-DD41-4378-BFCE-44F4C8587FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A6D5DFE-DD41-4378-BFCE-44F4C8587FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A6D5DFE-DD41-4378-BFCE-44F4C8587FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B809B89-B473-4314-8937-851C002457DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B809B89-B473-4314-8937-851C002457DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B809B89-B473-4314-8937-851C002457DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B809B89-B473-4314-8937-851C002457DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{2018F2D8-9604-492D-809E-1951B7068D46} = {9CE2E7E7-9A4C-428B-A690-F732DC2E1224}
 		{93453EB6-AE73-4C69-B9A7-15DFFF427993} = {E06F82A1-A59F-461E-BC43-B434A0546A3B}
 		{6A6D5DFE-DD41-4378-BFCE-44F4C8587FB5} = {A19F63AF-6512-4C90-AD89-2C0C5B934D36}
+		{0B809B89-B473-4314-8937-851C002457DC} = {848103AB-8800-4899-90A3-069F8E99A424}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46E0211D-C4B4-4149-85BE-CD3A08868DD5}
