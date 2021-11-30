@@ -14,13 +14,15 @@ namespace BlueBank.System.Application.Queries
     {
         public override IEnumerable<GetAllCustomerResponse> Handle(GetAllCustomerRequest request)
         {
+            return new List<GetAllCustomerResponse>();
+            /*
             return CustomerRepository.Customers.Select(c => new GetAllCustomerResponse()
             {
                 Id = c.Id,
                 Name = c.Name,
                 Telephone = c.Telephone
 
-            });
+            });*/
         }        
     }
 }

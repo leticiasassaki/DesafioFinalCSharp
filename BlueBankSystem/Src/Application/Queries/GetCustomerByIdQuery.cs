@@ -13,6 +13,7 @@ namespace BlueBank.System.Application.Queries
     {
         public override GetCustomerByIdResponse Handle(GetCustomerByIdRequest request)
         {
+            return new GetCustomerByIdResponse();/*
             var customer = CustomerRepository.Customers.Single(c => c.Id == request.Id);
             return new GetCustomerByIdResponse()
             {
@@ -20,7 +21,7 @@ namespace BlueBank.System.Application.Queries
                 Name = customer.Name,
                 Telephone = customer.Telephone,
                 IsActive = customer.IsActive 
-            };
+            };*/
         }
 
     }

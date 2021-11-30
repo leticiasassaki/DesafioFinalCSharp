@@ -14,14 +14,16 @@ namespace BlueBank.System.Application.Commands
     {
         public override UpdateCustomerResponse Handle(UpdateCustomerRequest request)
         {
-            var customer = CustomerRepository.Customers.Single(c => c.Id == request.Id);
+            /*var customer = CustomerRepository.Customers.Single(c => c.Id == request.Id);
             customer.Name = request.Name;
             customer.Telephone = request.Telephone;
 
             var response = new UpdateCustomerResponse() { Id = customer.Id, Name = customer.Name, Telephone = customer.Telephone };
-
-            return response;
             
+            return response;*/
+            return new UpdateCustomerResponse();
+
+
         }
     }
 }

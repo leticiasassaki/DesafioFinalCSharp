@@ -15,7 +15,7 @@ namespace BlueBank.System.Services.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private CustomerRepository _repository;
+        private readonly CustomerRepository _repository;
         public CustomerController(SystemContext context)
         {
             _repository = new CustomerRepository(context);

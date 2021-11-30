@@ -13,9 +13,9 @@ namespace BlueBank.System.Application.Commands
     {
         public override RemoveCustomerByIdResponse Handle(RemoveCustomerByIdRequest request)
         {
-            var customer = CustomerRepository.Customers.Single(c => c.Id == request.Id);
+            //var customer = CustomerRepository.Customers.Single(c => c.Id == request.Id);
 
-            CustomerRepository.Customers.Remove(customer);
+            //CustomerRepository.Customers.Remove(customer);
 
             return new RemoveCustomerByIdResponse();
         }

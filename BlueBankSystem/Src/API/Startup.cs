@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using BlueBank.System.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace BlueBank.System.Services.API
 {
     public class Startup
@@ -27,9 +28,9 @@ namespace BlueBank.System.Services.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            /*services.AddSwaggerGen(c =>
+            /*object p = services.AddSwaggerGen(p =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+                p.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });*/
 
             var connectionString = "Host=postgres;Port=5432=true;Pooling=true;Database=SystemDb;User Id:postgres;Password:admin;";
