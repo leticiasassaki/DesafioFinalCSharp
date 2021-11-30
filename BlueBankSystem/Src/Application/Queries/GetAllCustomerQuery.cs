@@ -1,6 +1,7 @@
 ﻿using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
+using BlueBank.System.Domain.Shared.Handlers;
 using OpenXmlPowerTools;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,32 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Queries
 {
-    public class GetAllCustomerQuery : Handler<GetAllCustomerRequest, IEnumerable<GetAllCustomerResponse>>
+    public class GetAllCustomerQuery : IHandler<GetAllCustomerRequest, IQueryable<GetAllCustomerResponse>>
     {
-        public override IEnumerable<GetAllCustomerResponse> Handle(GetAllCustomerRequest request)
-        {
-            return new List<GetAllCustomerResponse>();
-            /*
-            return CustomerRepository.Customers.Select(c => new GetAllCustomerResponse()
-            {
-                Id = c.Id,
-                Name = c.Name,
-                Telephone = c.Telephone
+        private readonly CustomerRepository _repository;
 
-            });*/
+        public GetAllCustomerQuery(CustomerRepository repository)
+        {
+            _repository = repository;
+        }
+
+
+        public IQueryable<GetAllCustomerResponse> Handle(GetAllCustomerRequest request)
+        {
+
+
+
+            
+            
+            return _repository
+                .Get()
+                .Select(c => new GetAllCustomerResponse()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Telephone = c.Telephone
+
+                });
         }        
     }
 }

@@ -2,6 +2,7 @@
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Domain.OrderManagement.Entities;
+using BlueBank.System.Domain.Shared.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,14 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class AddCustomerCommand : Handler<AddCustomerRequest, AddCustomerResponse>
+    public class AddCustomerCommand : IHandler<AddCustomerRequest, AddCustomerResponse>
     {
          private CustomerRepository _repository;
         public AddCustomerCommand(CustomerRepository repository)
         {
             _repository = repository;
         }
-
-         public  override AddCustomerResponse Handle(AddCustomerRequest request)
+         public  AddCustomerResponse Handle(AddCustomerRequest request)
          {
              var customer = new Customer(request.Name, request.Telephone);
 

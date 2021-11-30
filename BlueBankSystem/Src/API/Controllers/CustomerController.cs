@@ -25,10 +25,10 @@ namespace BlueBank.System.Services.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var request = new GetAllCustomerRequest();
-            var handler = new GetAllCustomerQuery();
+            
+            var handler = new GetAllCustomerQuery(_repository);
 
-            var response = handler.Handle(request);
+            var response = handler.Handle(new GetAllCustomerRequest());
 
             return Ok(response);
         }
@@ -71,7 +71,7 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Update([FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
         {
             request.Id = id;
-            var handler = new UpdateCustomerCommand();
+            var handler = new UpdateCustomerCommand(_repository);
 
             var response = handler.Handle(request);
 

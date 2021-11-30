@@ -29,5 +29,17 @@ namespace BlueBank.System.Data.Repositories
         {
             return _context.Customers.Find(id);
         }
+
+        public void Update(Customer customer)
+        {
+            _context.Customers.Update(customer);
+            _context.SaveChanges();
+
+        }
+
+        public IQueryable<Customer> Get()
+        {
+            return _context.Customers.AsQueryable();
+        }
     }
 }
