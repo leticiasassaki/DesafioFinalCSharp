@@ -34,7 +34,7 @@ dotnet test
 ### :martelo_e_chave: Tecnologias
 As seguintes linguagens e ferramentas foram usadas na construção do projeto:
 - [C#](https://docs.microsoft.com/pt-br/dotnet/csharp/)
-- [.NET 5.0] (https://dotnet.microsoft.com/download/dotnet/5.0)
+- [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
 
 ### Endpoints
 O projeto possui os seguintes endpoints:
