@@ -60,7 +60,7 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Remove([FromRoute]Guid id)
         {
             var request = new RemoveCustomerByIdRequest() { Id = id};
-            var handler = new RemoveCustomerByIdCommand();
+            var handler = new RemoveCustomerByIdCommand(_repository);
             var response = handler.Handle(request);
             
             return Ok(response);

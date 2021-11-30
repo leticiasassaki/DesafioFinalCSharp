@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlueBank.System.Data.Contexts;
+using System.Linq.Expressions;
 
 namespace BlueBank.System.Data.Repositories
 {
@@ -37,9 +38,11 @@ namespace BlueBank.System.Data.Repositories
 
         }
 
-        public IQueryable<Customer> Get()
+        public IQueryable<Customer> Get(Expression<Func<Customer, bool>>predicate = null)
         {
-            return _context.Customers.AsQueryable();
+            return predicate == null
+                ? _context.Customers.AsQueryable()
+                : _context.Customers.Where(predicate).AsQueryable();
         }
     }
 }

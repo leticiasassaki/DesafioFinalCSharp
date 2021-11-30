@@ -20,16 +20,10 @@ namespace BlueBank.System.Application.Queries
             _repository = repository;
         }
 
-
         public IQueryable<GetAllCustomerResponse> Handle(GetAllCustomerRequest request)
         {
-
-
-
-            
-            
             return _repository
-                .Get()
+                .Get(c => c.IsActive)
                 .Select(c => new GetAllCustomerResponse()
                 {
                     Id = c.Id,
