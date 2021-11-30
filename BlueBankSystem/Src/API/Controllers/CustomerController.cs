@@ -6,13 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlueBank.System.Application.Commands;
+using BlueBank.System.Data.Repositories;
+using BlueBank.System.Data.Contexts;
 
 namespace BlueBank.System.Services.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
-    {    
+    {
+        private CustomerRepository _repository;
+        public CustomerController(SystemContext context)
+        {
+            _repository = new CustomerRepository(context);
+        }
+
               
         [HttpGet]
         public IActionResult Get()
@@ -41,7 +49,8 @@ namespace BlueBank.System.Services.API.Controllers
         [HttpPost]
         public IActionResult Add([FromBody] AddCustomerRequest request)
         {
-            var handler = new AddCustomerCommand();
+            
+            var handler = new AddCustomerCommand(_repository);
             var response = handler.Handle(request);
             return Created("", response);
         }

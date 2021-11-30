@@ -12,12 +12,17 @@ namespace BlueBank.System.Application.Commands
 {
     public class AddCustomerCommand : Handler<AddCustomerRequest, AddCustomerResponse>
     {
+         private CustomerRepository _repository;
+        public AddCustomerCommand(CustomerRepository repository)
+        {
+            _repository = repository;
+        }
 
          public  override AddCustomerResponse Handle(AddCustomerRequest request)
          {
              var customer = new Customer(request.Name, request.Telephone);
 
-             CustomerRepository.Customers.Add(customer);
+             _repository.Add(customer);
 
              return new AddCustomerResponse()
              { 
