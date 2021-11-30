@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>BlueBank.System.Data</AssemblyName>
+    <RootNamespace>BlueBank.System.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderManagement\OrderManagement.csproj" />
+  </ItemGroup>
+
+</Project>

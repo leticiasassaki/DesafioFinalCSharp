@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBank.System.Domain.OrderManagement.Entities
+namespace BlueBank.System.Application.Responses
 {
-    class CustomerRequest 
+    public class GetCustomerByIdResponse
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Telephone { get; set; }
-
-
+        public bool IsActive { get; set; }
     }
 }

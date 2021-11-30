@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {
-    class Customer : Entity
+    public class Customer : Entity
     {
         public string Name { get; set; }
-
         public string Telephone { get; set; }
+
+        public Customer(string name, string telephone)
+        {
+            Name = name;
+            Telephone = telephone;
+        }
 
     }
 }
