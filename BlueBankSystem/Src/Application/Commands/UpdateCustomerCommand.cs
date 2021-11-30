@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class UpdateCustomerCommandHandler : Handler<UpdateCustomerRequest, UpdateCustomerResponse>
+    public class UpdateCustomerCommand : Handler<UpdateCustomerRequest, UpdateCustomerResponse>
     {
         public override UpdateCustomerResponse Handle(UpdateCustomerRequest request)
         {

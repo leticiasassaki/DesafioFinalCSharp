@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>BlueBank.System.Domain.Shared</AssemblyName>
+    <RootNamespace>BlueBank.System.Domain.Shared</RootNamespace>
+  </PropertyGroup>
+
+</Project>

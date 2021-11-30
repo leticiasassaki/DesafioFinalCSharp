@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBank.System.Domain.OrderManagement.Entities
+namespace BlueBank.System.Domain.Shared.Entities
 {
     public abstract class Entity
     {

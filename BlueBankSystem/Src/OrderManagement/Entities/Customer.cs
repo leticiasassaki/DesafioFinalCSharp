@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlueBank.System.Domain.Shared.Entities;
 
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {

@@ -18,7 +18,7 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Get()
         {
             var request = new GetAllCustomerRequest();
-            var handler = new GetAllCustomerQueryHandler();
+            var handler = new GetAllCustomerQuery();
 
             var response = handler.Handle(request);
 
@@ -31,7 +31,7 @@ namespace BlueBank.System.Services.API.Controllers
         {
             var request = new GetCustomerByIdRequest() { Id = id };
 
-            var handler = new GetCustomerByIdQueryHandler();
+            var handler = new GetCustomerByIdQuery();
             var response = handler.Handle(request);
 
             return Ok(response);
@@ -41,7 +41,7 @@ namespace BlueBank.System.Services.API.Controllers
         [HttpPost]
         public IActionResult Add([FromBody] AddCustomerRequest request)
         {
-            var handler = new AddCustomerCommandHandler();
+            var handler = new AddCustomerCommand();
             var response = handler.Handle(request);
             return Created("", response);
         }
@@ -51,7 +51,7 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Remove([FromRoute]Guid id)
         {
             var request = new RemoveCustomerByIdRequest() { Id = id};
-            var handler = new RemoveCustomerByIdCommandHandler();
+            var handler = new RemoveCustomerByIdCommand();
             var response = handler.Handle(request);
             
             return Ok(response);
@@ -62,7 +62,7 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Update([FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
         {
             request.Id = id;
-            var handler = new UpdateCustomerCommandHandler();
+            var handler = new UpdateCustomerCommand();
 
             var response = handler.Handle(request);
 

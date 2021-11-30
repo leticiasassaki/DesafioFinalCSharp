@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class RemoveCustomerByIdCommandHandler : Handler<RemoveCustomerByIdRequest, RemoveCustomerByIdResponse>
+    public class RemoveCustomerByIdCommand : Handler<RemoveCustomerByIdRequest, RemoveCustomerByIdResponse>
     {
         public override RemoveCustomerByIdResponse Handle(RemoveCustomerByIdRequest request)
         {

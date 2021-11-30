@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Queries
 {
-    public class GetAllCustomerQueryHandler : Handler<GetAllCustomerRequest, IEnumerable<GetAllCustomerResponse>>
+    public class GetAllCustomerQuery : Handler<GetAllCustomerRequest, IEnumerable<GetAllCustomerResponse>>
     {
         public override IEnumerable<GetAllCustomerResponse> Handle(GetAllCustomerRequest request)
         {

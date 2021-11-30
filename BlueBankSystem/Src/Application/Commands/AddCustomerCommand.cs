@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class AddCustomerCommandHandler : Handler<AddCustomerRequest, AddCustomerResponse>
+    public class AddCustomerCommand : Handler<AddCustomerRequest, AddCustomerResponse>
     {
 
          public  override AddCustomerResponse Handle(AddCustomerRequest request)
@@ -19,9 +19,14 @@ namespace BlueBank.System.Application.Commands
 
              CustomerRepository.Customers.Add(customer);
 
-             var response = new AddCustomerResponse() { Id = customer.Id, Name = customer.Name, Telephone = customer.Telephone };
+             return new AddCustomerResponse()
+             { 
+                 Id = customer.Id, 
+                 Name = customer.Name, 
+                 Telephone = customer.Telephone 
+             };
 
-             return response;
+             
          }        
     }
 }

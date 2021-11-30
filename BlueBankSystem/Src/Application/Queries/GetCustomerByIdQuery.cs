@@ -9,7 +9,7 @@ using BlueBank.System.Data.Repositories;
 
 namespace BlueBank.System.Application.Queries
 {
-    public class GetCustomerByIdQueryHandler : Handler<GetCustomerByIdRequest, GetCustomerByIdResponse>
+    public class GetCustomerByIdQuery : Handler<GetCustomerByIdRequest, GetCustomerByIdResponse>
     {
         public override GetCustomerByIdResponse Handle(GetCustomerByIdRequest request)
         {

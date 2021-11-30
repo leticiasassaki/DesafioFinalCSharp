@@ -6,4 +6,8 @@
     <RootNamespace>BlueBank.System.Domain.OrderManagement</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
 </Project>
