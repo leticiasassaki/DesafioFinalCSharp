@@ -28,17 +28,17 @@ namespace BlueBank.System.Services.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            object p = services.AddSwaggerGen(p =>
+            services.AddSwaggerGen(p =>
             {
                 p.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
 
-            var connectionString = "Host=localhost;Port=5432;Pooling=true;Database=SystemDb;User Id=postgres;Password=28041960;";
+            
 
             services
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<SystemContext>(options =>
-                options.UseNpgsql(connectionString));
+                options.UseNpgsql(Configuration.GetConnectionString("SystemDb")));
         }
    
 
@@ -49,6 +49,8 @@ namespace BlueBank.System.Services.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
             app.UseRouting();

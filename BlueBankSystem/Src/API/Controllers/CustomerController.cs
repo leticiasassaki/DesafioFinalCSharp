@@ -50,8 +50,8 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Add([FromBody] AddCustomerRequest request)
         {
             
-            var handler = new AddCustomerCommand(_repository);
-            var response = handler.Handle(request);
+            var command  = new AddCustomerCommand(_repository);
+            var response = command.Handle(request);
             return Created("", response);
         }
 
