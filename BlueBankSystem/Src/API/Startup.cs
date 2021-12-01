@@ -15,7 +15,7 @@ using Microsoft.OpenApi.Models;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Domain.OrderManagement.Interfaces;
 using BlueBank.System.Application.Queries;
-using BlueBank.System.Application.Interface;
+using BlueBank.System.Application.Interfaces;
 
 namespace BlueBank.System.Services.API
 { 
@@ -43,8 +43,8 @@ namespace BlueBank.System.Services.API
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<SystemContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("SystemDb")));
-            services.AddSingleton<ICustomerRepository, CustomerRepository>();
-            services.AddSingleton<IGetCustomerByIdQuery, GetCustomerByIdQuery>();
+
+            ServiceRegister.Register(services);
         }
    
 

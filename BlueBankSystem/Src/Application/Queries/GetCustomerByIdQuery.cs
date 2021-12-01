@@ -4,29 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlueBank.System.Application.Interface;
+using BlueBank.System.Application.Interfaces;
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Domain.OrderManagement.Interfaces;
 using BlueBank.System.Domain.Shared.Handlers;
 
+
 namespace BlueBank.System.Application.Queries
 {
     public class GetCustomerByIdQuery : IGetCustomerByIdQuery
     {
         private ICustomerRepository _repository;
-      
+
 
         public GetCustomerByIdQuery(CustomerRepository repository)
         {
             _repository = repository;
         }
 
-        
+
 
         public GetCustomerByIdResponse Handle(GetCustomerByIdRequest request)
         {
-            
+
             var customer = _repository.GetById(request.Id);
 
             return new GetCustomerByIdResponse()
@@ -34,13 +36,11 @@ namespace BlueBank.System.Application.Queries
                 Id = customer.Id,
                 Name = customer.Name,
                 Telephone = customer.Telephone,
-                IsActive = customer.IsActive 
+                IsActive = customer.IsActive
             };
         }
 
-        GetCustomerByIdResponse IHandler<IGetCustomerByIdQuery, GetCustomerByIdResponse>.Handle(IGetCustomerByIdQuery request)
-        {
-            throw new NotImplementedException();
-        }
+
     }
+
 }

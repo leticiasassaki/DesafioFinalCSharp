@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlueBank.System.Domain.Shared.Entities;
+using BlueBank.System.Application.Interfaces;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class RemoveCustomerByIdCommand : IHandler<RemoveCustomerByIdRequest, RemoveCustomerByIdResponse>
+    public class RemoveCustomerByIdCommand : IRemoveCustomerByIdCommand
     {
         private readonly CustomerRepository _repository;
 

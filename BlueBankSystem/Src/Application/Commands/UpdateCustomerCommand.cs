@@ -1,4 +1,5 @@
-﻿using BlueBank.System.Application.Requests;
+﻿using BlueBank.System.Application.Interfaces;
+using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Domain.Shared.Handlers;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class UpdateCustomerCommand : IHandler<UpdateCustomerRequest, UpdateCustomerResponse>
+    public class UpdateCustomerCommand : IUpdateCustomerCommand
     {
         private readonly CustomerRepository _repository;
 

@@ -1,4 +1,5 @@
-﻿using BlueBank.System.Application.Requests;
+﻿using BlueBank.System.Application.Interfaces;
+using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Domain.OrderManagement.Entities;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class AddCustomerCommand : IHandler<AddCustomerRequest, AddCustomerResponse>
+    public class AddCustomerCommand : IAddCustomerCommand
     {
          private CustomerRepository _repository;
         public AddCustomerCommand(CustomerRepository repository)

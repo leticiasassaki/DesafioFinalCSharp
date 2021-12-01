@@ -34,7 +34,7 @@ namespace BlueBank.System.Services.API.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetById([FromServices] IGetCustomerByIdQuery query [FromRoute] Guid id)
+        public IActionResult GetById([FromServices] IGetCustomerByIdQuery query, [FromRoute] Guid id)
         {
             var request = new GetCustomerByIdRequest() { Id = id };
 
