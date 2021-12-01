@@ -14,18 +14,18 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class AddCustomerCommand : IAddCustomerCommand
+    public class AddCustomerCommand : CommandBase<Customer>, IAddCustomerCommand
     {
-        private readonly IRepository<Customer> _repository;
-        public AddCustomerCommand(IRepository<Customer> repository)
+        //private readonly IRepository<Customer> _repository;
+        public AddCustomerCommand(IRepository<Customer> repository) : base(repository)
         {
-            _repository = repository;
+           
         }
          public  AddCustomerResponse Handle(AddCustomerRequest request)
          {
              var customer = new Customer(request.Name, request.Telephone);
 
-             _repository.Add(customer);
+             repository.Add(customer);
 
              return new AddCustomerResponse()
              { 
