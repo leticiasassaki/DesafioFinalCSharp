@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BlueBank.System.Application.Interface;
+using BlueBank.System.Application.Interfaces;
 using BlueBank.System.Application.Interfaces;
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
@@ -19,7 +19,7 @@ namespace BlueBank.System.Application.Queries
         private ICustomerRepository _repository;
 
 
-        public GetCustomerByIdQuery(CustomerRepository repository)
+        public GetCustomerByIdQuery(ICustomerRepository repository)
         {
             _repository = repository;
         }

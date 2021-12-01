@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlueBank.System.Application.Commands;
-using BlueBank.System.Application.Interface;
+using BlueBank.System.Application.Interfaces;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Data.Contexts;
 using BlueBank.System.Domain.OrderManagement.Interfaces;
+using BlueBank.System.Application.Interfaces;
 
 namespace BlueBank.System.Services.API.Controllers
 {
@@ -17,20 +18,12 @@ namespace BlueBank.System.Services.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-       
-
-           /*   
         [HttpGet]
-        public IActionResult Get()
-        {
-
-            var query = new GetAllCustomerQuery(_repository);
-
-            var response = query.Handle(new GetAllCustomerRequest());
-            return Ok(response);
-
-            return Ok();
-        }*/
+        public IActionResult Get([FromServices] IGetAllCustomerQuery query)
+        {           
+            return Ok(query.Handle(new GetAllCustomerRequest()));
+        }
+        
 
         [HttpGet]
         [Route("{id}")]
@@ -38,44 +31,56 @@ namespace BlueBank.System.Services.API.Controllers
         {
             var request = new GetCustomerByIdRequest() { Id = id };
 
-            
-            var response = query.Handle(request);
-
-            return Ok(response);
+            return Ok(query.Handle(request));
         }
         
-        /*
+        
         [HttpPost]
-        public IActionResult Add([FromBody] AddCustomerRequest request)
+        public IActionResult Add([FromServices] IAddCustomerCommand command, [FromBody] AddCustomerRequest request)
         {
-            
-            var command  = new AddCustomerCommand(_repository);
-            var response = command.Handle(request);
-            return Created("", response);
+            return Created("", command.Handle(request));
         }
-
+        
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult Remove([FromRoute]Guid id)
+        public IActionResult Remove([FromServices] IRemoveCustomerByIdCommand command, [FromRoute]Guid id)
         {
             var request = new RemoveCustomerByIdRequest() { Id = id};
-            var command = new RemoveCustomerByIdCommand(_repository);
-            var response = command.Handle(request);
-            
-            return Ok(response);
+                       
+            return Ok(command.Handle(request));
         }
-
+        
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update([FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
+        public IActionResult Update([FromServices] IUpdateCustomerCommand command, [FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
         {
+             
             request.Id = id;
-            var command = new UpdateCustomerCommand(_repository);
+            try
+            {
+                return Ok(command.Handle(request));
+            } catch(ArgumentException ex)
+            {               
+                return BadRequest(new { ex.Message });
+            }            
+        }
 
-            var response = command.Handle(request);
+        [HttpPatch]
+        [Route("{id}")]
+        public IActionResult ChangeStatus([FromServices] ICustomerChangeStatusCommand command, [FromRoute] Guid id, [FromBody]ChangeStatusRequest request)
+        {
+            request.Id = id;            
 
-            return Ok(response);
-        }*/
+            return Ok(command.Handle(request));
+        }
+
+
+
+
+
+
+
+
     }
 
 

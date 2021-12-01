@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Interfaces
 {
-    interface IGetAllCustomerQuery : IHandler<GetAllCustomerRequest, IQueryable<GetAllCustomerResponse>>
+    public interface IGetAllCustomerQuery : IHandler<GetAllCustomerRequest, IQueryable<GetAllCustomerResponse>>
     {
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Interfaces
 {
-    public interface IAddCustomerCommand : IHandler<AddCustomerRequest, AddCustomerResponse>
+    public interface ICustomerChangeStatusCommand : IHandler<ChangeStatusRequest, ChangeStatusResponse>
     {
     }
 }

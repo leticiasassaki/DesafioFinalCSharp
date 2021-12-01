@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Interfaces
 {
-    interface IRemoveCustomerByIdCommand : IHandler<RemoveCustomerByIdRequest, RemoveCustomerByIdResponse>
+    public interface IRemoveCustomerByIdCommand : IHandler<RemoveCustomerByIdRequest, RemoveCustomerByIdResponse>
     {
     
     }

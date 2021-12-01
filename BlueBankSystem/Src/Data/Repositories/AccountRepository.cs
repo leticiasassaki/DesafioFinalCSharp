@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Data.Repositories
 {
-    public class AccountRepository : RepositoryBase<Account>
+    public class AccountRepository : RepositoryBase<Account>, IAccountRepository
     {
         public AccountRepository(SystemContext context) : base(context) { }
        

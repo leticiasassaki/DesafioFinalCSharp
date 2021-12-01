@@ -24,14 +24,19 @@ namespace BlueBank.System.Services.API
         public static void RegisterCommands(IServiceCollection services)
         {
             services.AddSingleton<IUpdateCustomerCommand, UpdateCustomerCommand>();
+            services.AddSingleton<IAddCustomerCommand, AddCustomerCommand>();
+            services.AddSingleton<IRemoveCustomerByIdCommand, RemoveCustomerByIdCommand>();
+            services.AddSingleton<ICustomerChangeStatusCommand, CustomerChangeStatusCommand>();
         }
         public static void RegisterQueries(IServiceCollection services)
         {
             services.AddSingleton<IGetCustomerByIdQuery, GetCustomerByIdQuery>();
+            services.AddSingleton<IGetAllCustomerQuery, GetAllCustomerQuery>();
         }
         public static void RegisterRepositories(IServiceCollection services)
         {
             services.AddSingleton<ICustomerRepository, CustomerRepository>();
+            services.AddSingleton<IAccountRepository, AccountRepository>();
 
         }
 

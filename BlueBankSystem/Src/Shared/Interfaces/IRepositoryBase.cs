@@ -17,7 +17,6 @@ namespace BlueBank.System.Domain.Shared.Interfaces
 
         void Update(TEntity customer);
 
-
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> predicate = null);
         void Remove(Guid id);
     }
