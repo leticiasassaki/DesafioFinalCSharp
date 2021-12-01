@@ -6,43 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using BlueBank.System.Data.Contexts;
 using System.Linq.Expressions;
+using BlueBank.System.Domain.OrderManagement.Interfaces;
 
 namespace BlueBank.System.Data.Repositories
 {
-    public class CustomerRepository
+    public class CustomerRepository : RepositoryBase<Customer>, ICustomerRepository
     {
-        private SystemContext _context;
-
-        public CustomerRepository(SystemContext context)
-        {
-            _context = context;
-        }
-
-        public void Add(Customer customer)
-        {
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
-        }
-
-       
-
-        public Customer GetById(Guid id)
-        {
-            return _context.Customers.Find(id);
-        }
-
-        public void Update(Customer customer)
-        {
-            _context.Customers.Update(customer);
-            _context.SaveChanges();
-
-        }
-
-        public IQueryable<Customer> Get(Expression<Func<Customer, bool>>predicate = null)
-        {
-            return predicate == null
-                ? _context.Customers.AsQueryable()
-                : _context.Customers.Where(predicate).AsQueryable();
-        }
+        public CustomerRepository(SystemContext context) : base(context) { }
+        
     }
 }

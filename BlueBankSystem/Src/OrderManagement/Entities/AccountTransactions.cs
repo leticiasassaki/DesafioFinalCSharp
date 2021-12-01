@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {
-    class CustomerRequest 
+    class AccountTransactions
     {
-        public string Name { get; set; }
-        public string Telephone { get; set; }
-
+        public Guid Id { get; private set; }
 
     }
 }

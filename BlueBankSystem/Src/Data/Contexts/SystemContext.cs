@@ -1,4 +1,5 @@
-﻿using BlueBank.System.Domain.OrderManagement.Entities;
+﻿using BlueBank.System.Data.Repositories;
+using BlueBank.System.Domain.OrderManagement.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace BlueBank.System.Data.Contexts
 
 
         public DbSet<Customer> Customers { get; set; }
+
+        //public DbSet<AccountTransaction> AccountTransactions { get; set; }
 
         //public DbSet<Account> Accounts { get; set; }
         

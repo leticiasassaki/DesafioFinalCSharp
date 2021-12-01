@@ -6,8 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlueBank.System.Application.Commands;
+using BlueBank.System.Application.Interface;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Data.Contexts;
+using BlueBank.System.Domain.OrderManagement.Interfaces;
 
 namespace BlueBank.System.Services.API.Controllers
 {
@@ -15,37 +17,34 @@ namespace BlueBank.System.Services.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly CustomerRepository _repository;
-        public CustomerController(SystemContext context)
-        {
-            _repository = new CustomerRepository(context);
-        }
+       
 
-              
+           /*   
         [HttpGet]
         public IActionResult Get()
         {
-            
-            var handler = new GetAllCustomerQuery(_repository);
 
-            var response = handler.Handle(new GetAllCustomerRequest());
+            var query = new GetAllCustomerQuery(_repository);
 
+            var response = query.Handle(new GetAllCustomerRequest());
             return Ok(response);
-        }
+
+            return Ok();
+        }*/
 
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetById([FromRoute] Guid id)
+        public IActionResult GetById([FromServices] IGetCustomerByIdQuery query [FromRoute] Guid id)
         {
             var request = new GetCustomerByIdRequest() { Id = id };
 
-            var handler = new GetCustomerByIdQuery(_repository);
-            var response = handler.Handle(request);
+            
+            var response = query.Handle(request);
 
             return Ok(response);
         }
         
-
+        /*
         [HttpPost]
         public IActionResult Add([FromBody] AddCustomerRequest request)
         {
@@ -60,8 +59,8 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Remove([FromRoute]Guid id)
         {
             var request = new RemoveCustomerByIdRequest() { Id = id};
-            var handler = new RemoveCustomerByIdCommand(_repository);
-            var response = handler.Handle(request);
+            var command = new RemoveCustomerByIdCommand(_repository);
+            var response = command.Handle(request);
             
             return Ok(response);
         }
@@ -71,12 +70,12 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Update([FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
         {
             request.Id = id;
-            var handler = new UpdateCustomerCommand(_repository);
+            var command = new UpdateCustomerCommand(_repository);
 
-            var response = handler.Handle(request);
+            var response = command.Handle(request);
 
             return Ok(response);
-        }
+        }*/
     }
 
 
