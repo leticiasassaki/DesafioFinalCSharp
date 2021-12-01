@@ -10,15 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using BlueBank.System.Domain.Shared.Entities;
 using BlueBank.System.Application.Interfaces;
-using BlueBank.System.Domain.OrderManagement.Interfaces;
+
+using BlueBank.System.Domain.Shared.Interfaces;
 
 namespace BlueBank.System.Application.Commands
 {
     public class RemoveCustomerByIdCommand : IRemoveCustomerByIdCommand
     {
-        private readonly ICustomerRepository _repository;
+        private readonly IRepository<Customer> _repository;
 
-        public RemoveCustomerByIdCommand(ICustomerRepository repository)
+        public RemoveCustomerByIdCommand(IRepository<Customer> repository)
         {
             _repository = repository;
         }

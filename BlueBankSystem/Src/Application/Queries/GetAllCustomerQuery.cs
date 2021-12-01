@@ -2,8 +2,10 @@
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
-using BlueBank.System.Domain.OrderManagement.Interfaces;
+using BlueBank.System.Domain.OrderManagement.Entities;
+
 using BlueBank.System.Domain.Shared.Handlers;
+using BlueBank.System.Domain.Shared.Interfaces;
 using OpenXmlPowerTools;
 using System;
 using System.Collections.Generic;
@@ -15,9 +17,9 @@ namespace BlueBank.System.Application.Queries
 {
     public class GetAllCustomerQuery : IGetAllCustomerQuery
     {
-        private readonly ICustomerRepository _repository;
+        private readonly IRepository<Customer> _repository;
 
-        public GetAllCustomerQuery(ICustomerRepository repository)
+        public GetAllCustomerQuery(IRepository<Customer> repository)
         {
             _repository = repository;
         }

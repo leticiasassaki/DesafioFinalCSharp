@@ -9,8 +9,7 @@ using BlueBank.System.Application.Commands;
 using BlueBank.System.Application.Interfaces;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Data.Contexts;
-using BlueBank.System.Domain.OrderManagement.Interfaces;
-using BlueBank.System.Application.Interfaces;
+using BlueBank.System.Domain.OrderManagement.Entities;
 
 namespace BlueBank.System.Services.API.Controllers
 {
@@ -67,7 +66,7 @@ namespace BlueBank.System.Services.API.Controllers
 
         [HttpPatch]
         [Route("{id}")]
-        public IActionResult ChangeStatus([FromServices] ICustomerChangeStatusCommand command, [FromRoute] Guid id, [FromBody]ChangeStatusRequest request)
+        public IActionResult ChangeStatus([FromServices] IChangeStatusCommand<Customer> command, [FromRoute] Guid id, [FromBody]ChangeStatusRequest request)
         {
             request.Id = id;            
 

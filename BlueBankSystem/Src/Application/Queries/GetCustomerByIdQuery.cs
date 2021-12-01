@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlueBank.System.Application.Interfaces;
-using BlueBank.System.Application.Interfaces;
+
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
-using BlueBank.System.Domain.OrderManagement.Interfaces;
+using BlueBank.System.Domain.OrderManagement.Entities;
 using BlueBank.System.Domain.Shared.Handlers;
-
+using BlueBank.System.Domain.Shared.Interfaces;
 
 namespace BlueBank.System.Application.Queries
 {
     public class GetCustomerByIdQuery : IGetCustomerByIdQuery
     {
-        private ICustomerRepository _repository;
+        private IRepository<Customer> _repository;
 
 
-        public GetCustomerByIdQuery(ICustomerRepository repository)
+        public GetCustomerByIdQuery(IRepository<Customer> repository)
         {
             _repository = repository;
         }

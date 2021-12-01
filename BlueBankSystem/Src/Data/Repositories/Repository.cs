@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Data.Repositories
 {
-    public abstract class RepositoryBase<TEntity>: IRepositoryBase<TEntity> where TEntity : Entity
+    public class Repository<TEntity>: IRepository<TEntity> where TEntity : Entity
     {
-        protected DbContext _context;
+        private SystemContext _context;
 
-        public RepositoryBase(DbContext context)
+        public Repository(SystemContext context)
         {
             _context = context;
         }

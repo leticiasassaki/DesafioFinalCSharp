@@ -2,8 +2,10 @@
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
-using BlueBank.System.Domain.OrderManagement.Interfaces;
+using BlueBank.System.Domain.OrderManagement.Entities;
+
 using BlueBank.System.Domain.Shared.Handlers;
+using BlueBank.System.Domain.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,9 @@ namespace BlueBank.System.Application.Commands
 {
     public class UpdateCustomerCommand : IUpdateCustomerCommand
     {
-        private readonly ICustomerRepository _repository;
+        private readonly IRepository<Customer> _repository;
 
-        public UpdateCustomerCommand(ICustomerRepository repository)
+        public UpdateCustomerCommand(IRepository<Customer> repository)
         {
             _repository = repository;
         }

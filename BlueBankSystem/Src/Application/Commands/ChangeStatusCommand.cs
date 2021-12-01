@@ -1,7 +1,7 @@
-﻿using BlueBank.System.Application.Requests;
+﻿using BlueBank.System.Application.Interfaces;
+using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Domain.Shared.Entities;
-using BlueBank.System.Domain.Shared.Handlers;
 using BlueBank.System.Domain.Shared.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,11 +11,13 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public abstract class ChangeStatusCommand<TEntity> : IHandler<ChangeStatusRequest, ChangeStatusResponse> where TEntity : Entity
-    {
-        protected IRepositoryBase<TEntity> _repository;
+    public class ChangeStatusCommand<TEntity> : IChangeStatusCommand<TEntity> where TEntity : Entity
 
-        protected ChangeStatusCommand(IRepositoryBase<TEntity> repository)
+
+    {
+        private IRepository<TEntity> _repository;
+
+        public ChangeStatusCommand(IRepository<TEntity> repository)
         {
             _repository = repository;
         }

@@ -2,7 +2,8 @@
 using BlueBank.System.Application.Interfaces;
 using BlueBank.System.Application.Queries;
 using BlueBank.System.Data.Repositories;
-using BlueBank.System.Domain.OrderManagement.Interfaces;
+
+using BlueBank.System.Domain.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace BlueBank.System.Services.API
             services.AddSingleton<IUpdateCustomerCommand, UpdateCustomerCommand>();
             services.AddSingleton<IAddCustomerCommand, AddCustomerCommand>();
             services.AddSingleton<IRemoveCustomerByIdCommand, RemoveCustomerByIdCommand>();
-            services.AddSingleton<ICustomerChangeStatusCommand, CustomerChangeStatusCommand>();
+            services.AddSingleton(typeof(IChangeStatusCommand<>), typeof(ChangeStatusCommand<>));
         }
         public static void RegisterQueries(IServiceCollection services)
         {
@@ -35,9 +36,9 @@ namespace BlueBank.System.Services.API
         }
         public static void RegisterRepositories(IServiceCollection services)
         {
-            services.AddSingleton<ICustomerRepository, CustomerRepository>();
-            services.AddSingleton<IAccountRepository, AccountRepository>();
-
+            //services.AddSingleton<ICustomerRepository, CustomerRepository>();
+            //services.AddSingleton<IAccountRepository, AccountRepository>();
+            services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
         }
 
     }

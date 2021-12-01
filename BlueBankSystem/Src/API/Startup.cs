@@ -13,7 +13,6 @@ using BlueBank.System.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using BlueBank.System.Data.Repositories;
-using BlueBank.System.Domain.OrderManagement.Interfaces;
 using BlueBank.System.Application.Queries;
 using BlueBank.System.Application.Interfaces;
 
