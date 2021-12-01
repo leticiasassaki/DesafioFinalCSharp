@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Requests
 {
-    public class GetAllCustomerRequest
+    public class RemoveAccountRequest
     {
-        
-        public bool? IsActive { get; set; }
+        public Guid AccountId { get; set; }
     }
 }

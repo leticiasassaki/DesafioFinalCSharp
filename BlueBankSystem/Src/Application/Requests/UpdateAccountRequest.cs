@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Requests
 {
-    public class GetAllCustomerRequest
+    public class UpdateAccountRequest
     {
-        
-        public bool? IsActive { get; set; }
+        public Guid AccountId { get; set; }
+        public Guid CustomerId { get; set; }
+        public decimal Balance { get; set; }
     }
 }

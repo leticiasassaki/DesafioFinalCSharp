@@ -6,6 +6,7 @@ using BlueBank.System.Domain.OrderManagement.Entities;
 
 using BlueBank.System.Domain.Shared.Handlers;
 using BlueBank.System.Domain.Shared.Interfaces;
+using Construdelas.OrderSystem.Domain.Shared.Predicates;
 using OpenXmlPowerTools;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,12 @@ namespace BlueBank.System.Application.Queries
 
         public IQueryable<GetAllCustomerResponse> Handle(GetAllCustomerRequest request)
         {
+            var predicate = PredicateBuilder.New<Customer>();
+            if (request.IsActive != null) predicate = predicate.And(c => c.IsActive == request.IsActive);
+
+            
             return _repository
-                .Get(c => c.IsActive)
+                .Get(predicate)
                 .Select(c => new GetAllCustomerResponse()
                 {
                     Id = c.Id,
@@ -35,6 +40,7 @@ namespace BlueBank.System.Application.Queries
                     Telephone = c.Telephone,
                     IsActive = c.IsActive
                 });
-        }        
+                        
+        }    
     }
 }
