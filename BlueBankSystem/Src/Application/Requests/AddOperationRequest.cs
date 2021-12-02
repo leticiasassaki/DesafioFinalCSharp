@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Requests
 {
-    public class AddTransactionRequest
+    public class AddOperationRequest
     {
         public Guid AccountOrigin { get; set; }
         public Guid AccountRecipient { get; set; }        

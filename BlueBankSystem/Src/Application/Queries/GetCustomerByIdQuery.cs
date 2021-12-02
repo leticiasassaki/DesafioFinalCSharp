@@ -9,7 +9,6 @@ namespace BlueBank.System.Application.Queries
     public class GetCustomerByIdQuery : IGetCustomerByIdQuery
     {
         private IRepository<Customer> _repository;
-
         public GetCustomerByIdQuery(IRepository<Customer> repository)
         {
             _repository = repository;

@@ -11,6 +11,5 @@ namespace BlueBank.System.Domain.OrderManagement.Entities
             Name = name;
             Telephone = telephone;
         }
-
     }
 }

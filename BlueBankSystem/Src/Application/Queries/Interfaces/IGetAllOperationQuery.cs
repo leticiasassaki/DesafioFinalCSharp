@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBank.System.Application.Commands.Interfaces
+namespace BlueBank.System.Application.Queries.Interfaces
 {
-    public interface IAddTransactionCommand  : IHandler<AddTransactionRequest, AddTransactionResponse>
+    public interface IGetAllOperationQuery : IHandler<GetAllOperationRequest, IQueryable<GetAllOperationResponse>>
     {
     }
 }

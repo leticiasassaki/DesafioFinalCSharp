@@ -24,7 +24,7 @@ namespace BlueBank.System.Services.API
             services.AddScoped<IAddAccountCommand, AddAccountCommand>();
             services.AddScoped<IRemoveCustomerByIdCommand, RemoveCustomerByIdCommand>();
             services.AddScoped<IRemoveAccountByIdCommand, RemoveAccountByIdCommand>();
-            services.AddScoped<IAddTransactionCommand, AddTransactionCommand>();
+            services.AddScoped<IAddOperationCommand, AddOperationCommand>();
             services.AddScoped(typeof(IChangeStatusCommand<>), typeof(ChangeStatusCommand<>));
         }
         public static void RegisterQueries(IServiceCollection services)
@@ -33,13 +33,12 @@ namespace BlueBank.System.Services.API
             services.AddScoped<IGetAccountByIdQuery, GetAccountByIdQuery>();
             services.AddScoped<IGetAllCustomerQuery, GetAllCustomerQuery>();           
             services.AddScoped<IGetAllAccountQuery, GetAllAccountQuery>();
+            services.AddScoped<IGetAllOperationQuery, GetAllOperationQuery>();
+            
         }
         public static void RegisterRepositories(IServiceCollection services)
-        {
-            //services.AddSingleton<ICustomerRepository, CustomerRepository>();
-            //services.AddSingleton<IAccountRepository, AccountRepository>();
+        {            
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
-
     }
 }

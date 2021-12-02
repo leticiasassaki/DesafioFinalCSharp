@@ -4,24 +4,20 @@ using BlueBank.System.Application.Responses;
 using BlueBank.System.Domain.OrderManagement.Entities;
 using BlueBank.System.Domain.Shared.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class AddTransactionCommand : IAddTransactionCommand
+    public class AddOperationCommand : IAddOperationCommand
     {
         private readonly IRepository<Account> _repository;
-        private readonly IRepository<Transaction> _transactionRepository;
-        public AddTransactionCommand(IRepository<Account> repository, IRepository<Transaction> transactionRepository)
+        private readonly IRepository<Operation> _transactionRepository;
+        public AddOperationCommand(IRepository<Account> repository, IRepository<Operation> transactionRepository)
         {
             _repository = repository;
             _transactionRepository = transactionRepository;
         }
 
-        public AddTransactionResponse Handle(AddTransactionRequest request)
+        public AddOperationResponse Handle(AddOperationRequest request)
         {
             var accountOrigin = _repository.GetById(request.AccountOrigin);
             var accountRecipient = _repository.GetById(request.AccountRecipient);
@@ -35,7 +31,7 @@ namespace BlueBank.System.Application.Commands
 
             _repository.Update(accountOrigin);
             _repository.Update(accountRecipient);
-            var transaction = new Transaction(        
+            var transaction = new Operation(        
                request.AccountOrigin,
                request.AccountRecipient,
                DateTime.Now,
@@ -43,7 +39,7 @@ namespace BlueBank.System.Application.Commands
             );
             _transactionRepository.Add(transaction);
 
-            return new AddTransactionResponse()
+            return new AddOperationResponse()
             {
                 Id = transaction.Id,
                 AccountOrigin = transaction.AccountOrigin,

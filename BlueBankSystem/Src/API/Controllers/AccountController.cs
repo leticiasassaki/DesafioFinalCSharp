@@ -60,21 +60,16 @@ namespace BlueBank.System.Services.API.Controllers
 
         [HttpPost]
         [Route("transaction")]
-        public IActionResult Add([FromServices] IAddTransactionCommand command, [FromBody] AddTransactionRequest request)
+        public IActionResult Add([FromServices] IAddOperationCommand command, [FromBody] AddOperationRequest request)
         {
             return Created("", command.Handle(request));
         }
 
         [HttpGet]
         [Route("transaction")]
-        public IActionResult Get([FromServices] IGetTransactionQuery query)
+        public IActionResult Get([FromServices] IGetAllOperationQuery query)
         {
-            return Ok(query.Handle(new GetAllAccountRequest()));
+            return Ok(query.Handle(new GetAllOperationRequest()));
         }
-
-
-        //endpoint Transferencia
-        //request conta origem, conta destino, valor
-        //repositório de transação
     }
 }

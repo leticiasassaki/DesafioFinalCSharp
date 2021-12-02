@@ -15,18 +15,15 @@ namespace BlueBank.System.Services.API.Controllers
         public IActionResult Get([FromServices] IGetAllCustomerQuery query)
         {           
             return Ok(query.Handle(new GetAllCustomerRequest()));
-        }
-        
+        }        
 
         [HttpGet]
         [Route("{id}")]
         public IActionResult GetById([FromServices] IGetCustomerByIdQuery query, [FromRoute] Guid id)
         {
             var request = new GetCustomerByIdRequest() { Id = id };
-
             return Ok(query.Handle(request));
-        }
-        
+        }        
         
         [HttpPost]
         public IActionResult Add([FromServices] IAddCustomerCommand command, [FromBody] AddCustomerRequest request)
@@ -38,16 +35,14 @@ namespace BlueBank.System.Services.API.Controllers
         [Route("{id}")]
         public IActionResult Remove([FromServices] IRemoveCustomerByIdCommand command, [FromRoute]Guid id)
         {
-            var request = new RemoveCustomerByIdRequest() { Id = id};
-                       
+            var request = new RemoveCustomerByIdRequest() { Id = id};                       
             return Ok(command.Handle(request));
         }
         
         [HttpPut]
         [Route("{id}")]
         public IActionResult Update([FromServices] IUpdateCustomerCommand command, [FromRoute]Guid id, [FromBody]UpdateCustomerRequest request)
-        {
-             
+        {             
             request.Id = id;
             try
             {
@@ -62,22 +57,8 @@ namespace BlueBank.System.Services.API.Controllers
         [Route("{id}")]
         public IActionResult ChangeStatus([FromServices] IChangeStatusCommand<Customer> command, [FromRoute] Guid id, [FromBody]ChangeStatusRequest request)
         {
-            request.Id = id;            
-
+            request.Id = id; 
             return Ok(command.Handle(request));
         }
-
-
-
-
-
-
-
-
     }
-
-
-    
-
-
 }

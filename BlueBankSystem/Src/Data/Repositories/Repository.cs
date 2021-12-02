@@ -18,8 +18,7 @@ namespace BlueBank.System.Data.Repositories
         {
             _context.Set<TEntity>().Add(entity);
             _context.SaveChanges();
-        }
-        
+        }      
 
         public TEntity GetById(Guid id)
         {

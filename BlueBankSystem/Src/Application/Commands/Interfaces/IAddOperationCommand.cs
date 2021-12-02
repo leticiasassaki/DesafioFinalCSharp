@@ -4,7 +4,7 @@ using BlueBank.System.Domain.Shared.Handlers;
 
 namespace BlueBank.System.Application.Commands.Interfaces
 {
-    public interface IAddCustomerCommand : IHandler<AddCustomerRequest, AddCustomerResponse>
+    public interface IAddOperationCommand  : IHandler<AddOperationRequest, AddOperationResponse>
     {
     }
 }

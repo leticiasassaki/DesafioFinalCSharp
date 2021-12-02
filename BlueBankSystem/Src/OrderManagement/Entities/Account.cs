@@ -1,7 +1,6 @@
 ﻿using System;
 using BlueBank.System.Domain.Shared.Entities;
 
-
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {
     public class Account : Entity
@@ -10,7 +9,6 @@ namespace BlueBank.System.Domain.OrderManagement.Entities
         public Guid CustomerId { get; set; }
         public string CustomerName { get; set; }
         public decimal Balance { get; set; }
-
         public Account(string customerName, Guid customerId, decimal balance)
         {
             CustomerId = customerId;

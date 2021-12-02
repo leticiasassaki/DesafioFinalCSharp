@@ -15,7 +15,9 @@ namespace BlueBank.System.Services.API
         {
             Configuration = configuration;
         }
-        public IConfiguration Configuration { get; }        
+
+        public IConfiguration Configuration { get; }     
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -28,12 +30,8 @@ namespace BlueBank.System.Services.API
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<SystemContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("SystemDb")));
-
             ServiceRegister.Register(services);
-        }
-   
-
-
+        }       
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -45,9 +43,7 @@ namespace BlueBank.System.Services.API
             }
 
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
