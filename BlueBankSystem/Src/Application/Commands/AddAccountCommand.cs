@@ -23,6 +23,7 @@ namespace BlueBank.System.Application.Commands
             
             return new AddAccountResponse()
             {
+                Id = account.Id,
                 CustomerId = account.CustomerId,
                 CustomerName = customer.Name,
                 Balance = account.Balance

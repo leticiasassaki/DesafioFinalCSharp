@@ -19,7 +19,7 @@ namespace BlueBank.System.Services.API.Controllers
             return Ok(query.Handle(new GetAllAccountRequest()));
         }*/
         
-        [HttpGet("{id}/account")]
+        [HttpGet("{id}")]
         public IActionResult GetById([FromServices] IGetAccountByIdQuery query, [FromRoute] Guid id)
         {
             var response = query.Handle(new GetAccountByIdRequest(id));

@@ -22,6 +22,7 @@ namespace BlueBank.System.Application.Queries
             {
                 Id = account.Id,
                 CustomerId = account.CustomerId,
+                CustomerName = account.CustomerName,
                 Balance = account.Balance,
                 IsActive = account.IsActive
             };
