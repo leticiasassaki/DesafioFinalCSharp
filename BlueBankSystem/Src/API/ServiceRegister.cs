@@ -24,6 +24,7 @@ namespace BlueBank.System.Services.API
             services.AddScoped<IAddAccountCommand, AddAccountCommand>();
             services.AddScoped<IRemoveCustomerByIdCommand, RemoveCustomerByIdCommand>();
             services.AddScoped<IRemoveAccountByIdCommand, RemoveAccountByIdCommand>();
+            services.AddScoped<IAddTransactionCommand, AddTransactionCommand>();
             services.AddScoped(typeof(IChangeStatusCommand<>), typeof(ChangeStatusCommand<>));
         }
         public static void RegisterQueries(IServiceCollection services)
