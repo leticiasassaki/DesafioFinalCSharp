@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Construdelas.OrderSystem.Domain.Shared.Predicates
+namespace BlueBank.System.Domain.Shared.Predicates
 {
     public static class PredicateBuilder
     {

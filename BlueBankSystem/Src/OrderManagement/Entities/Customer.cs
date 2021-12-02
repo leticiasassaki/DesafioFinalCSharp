@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BlueBank.System.Domain.Shared.Entities;
+﻿using BlueBank.System.Domain.Shared.Entities;
 
 namespace BlueBank.System.Domain.OrderManagement.Entities
 {
@@ -11,7 +6,6 @@ namespace BlueBank.System.Domain.OrderManagement.Entities
     {
         public string Name { get; set; }
         public string Telephone { get; set; }
-
         public Customer(string name, string telephone)
         {
             Name = name;

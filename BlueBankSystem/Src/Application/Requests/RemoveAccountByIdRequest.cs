@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Requests
 {
-    public class RemoveAccountRequest
+    public class RemoveAccountByIdRequest
     {
-        public Guid AccountId { get; set; }
+        public Guid Id { get; set; }
     }
 }

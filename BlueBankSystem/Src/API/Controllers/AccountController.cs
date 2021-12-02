@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlueBank.System.Application.Commands.Interfaces;
+using BlueBank.System.Application.Queries.Interfaces;
+using BlueBank.System.Application.Requests;
+using BlueBank.System.Domain.OrderManagement.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,43 +12,58 @@ namespace BlueBank.System.Services.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
-    {
-        // GET: api/<ValuesController>
+    {       
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get([FromServices] IGetAllAccountQuery query)
         {
-            return new string[] { "value1", "value2" };
+            return Ok(query.Handle(new GetAllAccountRequest()));
         }
-
-        // GET api/<ValuesController>/5
+        
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult GetById([FromServices] IGetAccountByIdQuery query, [FromRoute] Guid id)
         {
-            return "value";
+            var request = new GetAccountByIdRequest() { Id = id };
+
+            return Ok(query.Handle(request));
         }
 
-        // POST api/<ValuesController>
+        
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromServices] IAddAccountCommand command, [FromBody] AddAccountRequest request)    
         {
+            return Created("", command.Handle(request));
         }
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpDelete("{id}")]
+        public IActionResult Remove([FromServices] IRemoveAccountByIdCommand command, [FromRoute] Guid id)
         {
+            var request = new RemoveAccountByIdRequest() { Id = id };
+            return Ok(command.Handle(request));
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Update([FromServices] IUpdateAccountCommand command, [FromRoute] Guid id, [FromBody] UpdateAccountRequest request)
+        {
+            request.Id = id;
+            try
+            {
+                return Ok(command.Handle(request));
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { ex.Message });
+            }
+        }
+
         //endpoint Transferencia
         //request conta origem, conta destino, valor
         //repositório de transação
-
-
-
-
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpPatch]
+        [Route("{id}")]
+        public IActionResult ChangeStatus([FromServices] IChangeStatusCommand<Account> command, [FromRoute] Guid id, [FromBody] ChangeStatusRequest request)
         {
+            request.Id = id;
+            return Ok(command.Handle(request));
         }
     }
 }

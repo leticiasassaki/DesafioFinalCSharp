@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Queries.Interfaces
 {
-    public interface IGetByIdAccountQuery : IHandler<GetAccountByIdRequest, GetAccountByIdResponse>
+    public interface IGetAccountByIdQuery : IHandler<GetAccountByIdRequest, GetAccountByIdResponse>
     {
     }
 }

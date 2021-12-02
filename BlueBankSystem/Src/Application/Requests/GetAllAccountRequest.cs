@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBank.System.Application.Responses
+namespace BlueBank.System.Application.Requests
 {
-    public class RemoveAccountResponse
+    public class GetAllAccountRequest
     {
+        public bool? IsActive { get; set; }
     }
 }

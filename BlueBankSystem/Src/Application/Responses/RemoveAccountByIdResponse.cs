@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Responses
 {
-    public class AddAccountResponse
+    public class RemoveAccountByIdResponse
     {
-        public Guid Id { get; set; }
-        public string CustomerId { get; set; }
-        public decimal Balance { get; set; }
+        public bool IsActive { get; set; }
     }
 }

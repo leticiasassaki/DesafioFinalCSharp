@@ -8,9 +8,9 @@ namespace BlueBank.System.Application.Responses
 {
     public class GetAccountByIdResponse
     {
-        public Guid AccountId { get; set; }
-        public Guid CustomerId { get; set; }
-
+        public Guid Id { get; set; }
+        public string CustomerId { get; set; }
         public decimal Balance { get; set; }
+        public bool IsActive { get; set; }
     }
 }

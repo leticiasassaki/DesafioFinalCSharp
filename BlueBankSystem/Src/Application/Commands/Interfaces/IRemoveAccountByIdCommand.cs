@@ -4,7 +4,7 @@ using BlueBank.System.Domain.Shared.Handlers;
 
 namespace BlueBank.System.Application.Commands.Interfaces
 {
-    public interface IUpdateCustomerCommand : IHandler<UpdateCustomerRequest, UpdateCustomerResponse>
+    public interface IRemoveAccountByIdCommand : IHandler<RemoveAccountByIdRequest, RemoveAccountByIdResponse>
     {
     }
 }

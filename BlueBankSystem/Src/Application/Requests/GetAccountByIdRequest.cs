@@ -8,6 +8,7 @@ namespace BlueBank.System.Application.Requests
 {
     public class GetAccountByIdRequest
     {
-        public Guid AccountId { get; set; }
+        public Guid Id { get; set; } 
     }
+
 }
