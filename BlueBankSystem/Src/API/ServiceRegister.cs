@@ -15,20 +15,23 @@ namespace BlueBank.System.Services.API
             RegisterQueries(services);
             RegisterRepositories(services);
             RegisterCommands(services);
-
         }
-
         public static void RegisterCommands(IServiceCollection services)
         {
             services.AddScoped<IUpdateCustomerCommand, UpdateCustomerCommand>();
+            services.AddScoped<IUpdateAccountCommand, UpdateAccountCommand>();
             services.AddScoped<IAddCustomerCommand, AddCustomerCommand>();
+            services.AddScoped<IAddAccountCommand, AddAccountCommand>();
             services.AddScoped<IRemoveCustomerByIdCommand, RemoveCustomerByIdCommand>();
+            services.AddScoped<IRemoveAccountByIdCommand, RemoveAccountByIdCommand>();
             services.AddScoped(typeof(IChangeStatusCommand<>), typeof(ChangeStatusCommand<>));
         }
         public static void RegisterQueries(IServiceCollection services)
         {
             services.AddScoped<IGetCustomerByIdQuery, GetCustomerByIdQuery>();
-            services.AddScoped<IGetAllCustomerQuery, GetAllCustomerQuery>();
+            services.AddScoped<IGetAccountByIdQuery, GetAccountByIdQuery>();
+            services.AddScoped<IGetAllCustomerQuery, GetAllCustomerQuery>();           
+            services.AddScoped<IGetAllAccountQuery, GetAllAccountQuery>();
         }
         public static void RegisterRepositories(IServiceCollection services)
         {
