@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BlueBank.System.Application.Interfaces;
+using BlueBank.System.Application.Queries.Interfaces;
+using BlueBank.System.Application.Commands.Interfaces;
 
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;

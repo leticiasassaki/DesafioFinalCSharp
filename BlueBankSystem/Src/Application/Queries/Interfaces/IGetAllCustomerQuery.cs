@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBank.System.Application.Interfaces
+namespace BlueBank.System.Application.Queries.Interfaces
 {
-    public interface IAddAccountCommand : IHandler<AddAccountRequest, AddAccountResponse>
+    public interface IGetAllCustomerQuery : IHandler<GetAllCustomerRequest, IQueryable<GetAllCustomerResponse>>
     {
     }
 }
