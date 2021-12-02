@@ -24,21 +24,21 @@ namespace BlueBank.System.Services.API
 
         public static void RegisterCommands(IServiceCollection services)
         {
-            services.AddSingleton<IUpdateCustomerCommand, UpdateCustomerCommand>();
-            services.AddSingleton<IAddCustomerCommand, AddCustomerCommand>();
-            services.AddSingleton<IRemoveCustomerByIdCommand, RemoveCustomerByIdCommand>();
-            services.AddSingleton(typeof(IChangeStatusCommand<>), typeof(ChangeStatusCommand<>));
+            services.AddScoped<IUpdateCustomerCommand, UpdateCustomerCommand>();
+            services.AddScoped<IAddCustomerCommand, AddCustomerCommand>();
+            services.AddScoped<IRemoveCustomerByIdCommand, RemoveCustomerByIdCommand>();
+            services.AddScoped(typeof(IChangeStatusCommand<>), typeof(ChangeStatusCommand<>));
         }
         public static void RegisterQueries(IServiceCollection services)
         {
-            services.AddSingleton<IGetCustomerByIdQuery, GetCustomerByIdQuery>();
-            services.AddSingleton<IGetAllCustomerQuery, GetAllCustomerQuery>();
+            services.AddScoped<IGetCustomerByIdQuery, GetCustomerByIdQuery>();
+            services.AddScoped<IGetAllCustomerQuery, GetAllCustomerQuery>();
         }
         public static void RegisterRepositories(IServiceCollection services)
         {
             //services.AddSingleton<ICustomerRepository, CustomerRepository>();
             //services.AddSingleton<IAccountRepository, AccountRepository>();
-            services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
     }

@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "SystemDb": "Host=localhost;Port=5432;Pooling=true;Database=SystemDb;User Id=postgres;Password=28041960;"
+  }
+}
