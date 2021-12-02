@@ -11,10 +11,7 @@ namespace BlueBank.System.Data.Contexts
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Account> Accounts { get; set; }
-
-        //public DbSet<AccountTransaction> AccountTransactions { get; set; }
-
-        //public DbSet<Account> Accounts { get; set; }
+        public DbSet<Transaction> AccountTransactions { get; set; }        
 
     }
 }
