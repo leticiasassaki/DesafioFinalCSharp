@@ -1,12 +1,5 @@
-﻿using BlueBank.System.Data.Repositories;
-using BlueBank.System.Domain.OrderManagement.Entities;
+﻿using BlueBank.System.Domain.OrderManagement.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BlueBank.System.Data.Contexts
 {
     public class SystemContext : DbContext
@@ -16,18 +9,13 @@ namespace BlueBank.System.Data.Contexts
             Database.EnsureCreated();
         }
 
-        
-
-
-
-
-
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
         //public DbSet<AccountTransaction> AccountTransactions { get; set; }
 
         //public DbSet<Account> Accounts { get; set; }
-        
+
     }
 }
 

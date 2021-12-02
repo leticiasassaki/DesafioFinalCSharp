@@ -2,7 +2,6 @@
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Domain.OrderManagement.Entities;
-using BlueBank.System.Domain.Shared.Commands;
 using BlueBank.System.Domain.Shared.Interfaces;
 
 namespace BlueBank.System.Application.Commands

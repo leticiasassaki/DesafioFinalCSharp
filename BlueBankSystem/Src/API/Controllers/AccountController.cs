@@ -19,7 +19,7 @@ namespace BlueBank.System.Services.API.Controllers
             return Ok(query.Handle(new GetAllAccountRequest()));
         }*/
         
-        [HttpGet("{id}")]
+        [HttpGet("{id}/account")]
         public IActionResult GetById([FromServices] IGetAccountByIdQuery query, [FromRoute] Guid id)
         {
             var response = query.Handle(new GetAccountByIdRequest(id));
@@ -29,18 +29,18 @@ namespace BlueBank.System.Services.API.Controllers
 
         
         [HttpPost]
-        public IActionResult Post([FromServices] IAddAccountCommand command, [FromBody] AddAccountRequest request)    
+        public IActionResult Add([FromServices] IAddAccountCommand command, [FromBody] AddAccountRequest request)    
         {
             return Created("", command.Handle(request));
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}/account")]
         public IActionResult Remove([FromServices] IRemoveAccountByIdCommand command, [FromRoute] Guid id)
         {            
             return Ok(command.Handle(new RemoveAccountByIdRequest(id)));
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}/account")]
         public IActionResult Update([FromServices] IUpdateAccountCommand command, [FromRoute] Guid id, [FromBody] UpdateAccountRequest request)
         {
             request.Id = id;
@@ -58,7 +58,7 @@ namespace BlueBank.System.Services.API.Controllers
         //request conta origem, conta destino, valor
         //repositório de transação
         [HttpPatch]
-        [Route("{id}")]
+        [Route("{id}/account")]
         public IActionResult ChangeStatus([FromServices] IChangeStatusCommand<Account> command, [FromRoute] Guid id, [FromBody] ChangeStatusRequest request)
         {
             request.Id = id;
