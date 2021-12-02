@@ -5,6 +5,6 @@ using BlueBank.System.Domain.Shared.Handlers;
 namespace BlueBank.System.Application.Commands.Interfaces
 {
     public interface IRemoveAccountByIdCommand : IHandler<RemoveAccountByIdRequest, RemoveAccountByIdResponse>
-    {
+    {       
     }
 }

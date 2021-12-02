@@ -7,18 +7,25 @@ using BlueBank.System.Domain.Shared.Interfaces;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class AddAccountCommand : CommandBase<Account>, IAddAccountCommand    
+    public class AddAccountCommand : IAddAccountCommand    
     {
-        public AddAccountCommand(IRepository<Account> repository) : base(repository)
+        private readonly IRepository<Account> _repository;
+        private readonly IRepository<Customer> _customerRepository;
+        public AddAccountCommand(IRepository<Account> repository, IRepository<Customer> customerRepository)
         {
+            _repository = repository;
+            _customerRepository = customerRepository;
         }
         public AddAccountResponse Handle(AddAccountRequest request)
         {
-            var account = new Account(request.CustomerId, request.Balance );
-            repository.Add(account);
+            var customer = _customerRepository.GetById(request.CustomerId);
+            var account = new Account(customer.Name, request.CustomerId, request.Balance );
+            _repository.Add(account);
+            
             return new AddAccountResponse()
             {
                 CustomerId = account.CustomerId,
+                CustomerName = customer.Name,
                 Balance = account.Balance
             };
             

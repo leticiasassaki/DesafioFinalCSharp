@@ -9,7 +9,7 @@ namespace BlueBank.System.Application.Requests
 {
     public class AddAccountRequest
     {
-        public string CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
         public decimal Balance { get; set; }
     }
 }

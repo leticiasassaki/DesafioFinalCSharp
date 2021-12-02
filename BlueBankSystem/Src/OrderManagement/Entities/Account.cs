@@ -6,13 +6,16 @@ namespace BlueBank.System.Domain.OrderManagement.Entities
 {
     public class Account : Entity
     {
-        public string CustomerId {get; set;}
+        public Customer Customer { get; set; }
+        public Guid CustomerId { get; set; }
+        public string CustomerName { get; set; }
         public decimal Balance { get; set; }
 
-        public Account(String customer, decimal balance)
+        public Account(string customerName, Guid customerId, decimal balance)
         {
-            CustomerId = customer;
+            CustomerId = customerId;
             Balance = balance;
-        }        
+            CustomerName = customerName;
+        }
     }
 }

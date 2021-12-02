@@ -13,18 +13,18 @@ namespace BlueBank.System.Services.API.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {       
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult Get([FromServices] IGetAllAccountQuery query)
         {
             return Ok(query.Handle(new GetAllAccountRequest()));
-        }
+        }*/
         
         [HttpGet("{id}")]
         public IActionResult GetById([FromServices] IGetAccountByIdQuery query, [FromRoute] Guid id)
         {
-            var request = new GetAccountByIdRequest() { Id = id };
+            var response = query.Handle(new GetAccountByIdRequest(id));
 
-            return Ok(query.Handle(request));
+            return Ok(response);
         }
 
         
@@ -36,9 +36,8 @@ namespace BlueBank.System.Services.API.Controllers
 
         [HttpDelete("{id}")]
         public IActionResult Remove([FromServices] IRemoveAccountByIdCommand command, [FromRoute] Guid id)
-        {
-            var request = new RemoveAccountByIdRequest() { Id = id };
-            return Ok(command.Handle(request));
+        {            
+            return Ok(command.Handle(new RemoveAccountByIdRequest(id)));
         }
 
         [HttpPut("{id}")]
