@@ -61,8 +61,16 @@ namespace BlueBank.System.Services.API.Controllers
         [HttpPost]
         [Route("transaction")]
         public IActionResult Add([FromServices] IAddOperationCommand command, [FromBody] AddOperationRequest request)
-        {
-            return Created("", command.Handle(request));
+        {            
+            try
+            {
+                return Created("", command.Handle(request));
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { ex.Message });
+            }
+            
         }
 
         [HttpGet]
