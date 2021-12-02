@@ -1,4 +1,5 @@
-﻿using BlueBank.System.Application.Interfaces;
+﻿using BlueBank.System.Application.Queries.Interfaces;
+using BlueBank.System.Application.Commands.Interfaces;
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Domain.Shared.Entities;

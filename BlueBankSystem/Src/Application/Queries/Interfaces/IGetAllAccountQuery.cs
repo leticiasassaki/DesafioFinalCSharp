@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBank.System.Application.Interfaces
+namespace BlueBank.System.Application.Queries.Interfaces
 {
-    public interface IRemoveAccountCommand : IHandler<RemoveAccountRequest, RemoveAccountResponse>
+    interface IGetAllAccountQuery : IHandler<GetAllAccountRequest, GetAllAccountByIdResponse>
     {
-
     }
 }

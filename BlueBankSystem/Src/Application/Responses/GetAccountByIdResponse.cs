@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlueBank.System.Application.Responses
 {
-    public class GetRemoveAccountByIdResponse
+    public class GetAccountByIdResponse
     {
         public Guid AccountId { get; set; }
         public Guid CustomerId { get; set; }

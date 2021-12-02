@@ -9,27 +9,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlueBank.System.Domain.Shared.Entities;
-using BlueBank.System.Application.Interfaces;
+using BlueBank.System.Application.Queries.Interfaces;
+using BlueBank.System.Application.Commands.Interfaces;
 
 using BlueBank.System.Domain.Shared.Interfaces;
+using BlueBank.System.Domain.Shared.Commands;
 
 namespace BlueBank.System.Application.Commands
 {
-    public class RemoveCustomerByIdCommand : IRemoveCustomerByIdCommand
-    {
-        private readonly IRepository<Customer> _repository;
-
-        public RemoveCustomerByIdCommand(IRepository<Customer> repository)
-        {
-            _repository = repository;
+    public class RemoveCustomerByIdCommand : CommandBase<Customer>, IRemoveCustomerByIdCommand
+    {    
+        public RemoveCustomerByIdCommand(IRepository<Customer> repository) : base (repository)
+        {            
         }
         public RemoveCustomerByIdResponse Handle(RemoveCustomerByIdRequest request)
         {
-            var customer = _repository.GetById(request.Id);
+            var customer = repository.GetById(request.Id);
 
             customer.IsActive = false;
 
-            _repository.Update(customer);
+            repository.Update(customer);
 
             return new RemoveCustomerByIdResponse() { IsActive = customer.IsActive};
         }        

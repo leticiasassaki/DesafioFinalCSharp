@@ -1,9 +1,10 @@
-﻿using BlueBank.System.Application.Interfaces;
+﻿using BlueBank.System.Application.Queries.Interfaces;
+using BlueBank.System.Application.Commands.Interfaces;
 using BlueBank.System.Application.Requests;
 using BlueBank.System.Application.Responses;
 using BlueBank.System.Data.Repositories;
 using BlueBank.System.Domain.OrderManagement.Entities;
-
+using BlueBank.System.Domain.Shared.Commands;
 using BlueBank.System.Domain.Shared.Handlers;
 using BlueBank.System.Domain.Shared.Interfaces;
 using System;

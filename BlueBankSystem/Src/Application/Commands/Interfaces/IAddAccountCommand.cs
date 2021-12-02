@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBank.System.Application.Interfaces
+namespace BlueBank.System.Application.Commands.Interfaces
 {
-    public interface IRemoveCustomerByIdCommand : IHandler<RemoveCustomerByIdRequest, RemoveCustomerByIdResponse>
+    public interface IAddAccountCommand : IHandler<AddAccountRequest, AddAccountResponse>
     {
-    
     }
 }
