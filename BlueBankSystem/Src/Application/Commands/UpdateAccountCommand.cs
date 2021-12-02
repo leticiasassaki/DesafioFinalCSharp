@@ -17,7 +17,7 @@ namespace BlueBank.System.Application.Commands
         {
             var account = repository.GetById(request.Id);
             if (!account.IsActive) throw new ArgumentException("A conta está inativo");
-            account.CustomerId = request.CustomerId;
+            
             account.Balance = request.Balance;
             repository.Update(account);
 

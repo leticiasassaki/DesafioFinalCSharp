@@ -34,13 +34,13 @@ namespace BlueBank.System.Services.API.Controllers
             return Created("", command.Handle(request));
         }
 
-        [HttpDelete("{id}/account")]
+        [HttpDelete("{id}")]
         public IActionResult Remove([FromServices] IRemoveAccountByIdCommand command, [FromRoute] Guid id)
         {            
             return Ok(command.Handle(new RemoveAccountByIdRequest(id)));
         }
 
-        [HttpPut("{id}/account")]
+        [HttpPut("{id}")]
         public IActionResult Update([FromServices] IUpdateAccountCommand command, [FromRoute] Guid id, [FromBody] UpdateAccountRequest request)
         {
             request.Id = id;
@@ -58,7 +58,7 @@ namespace BlueBank.System.Services.API.Controllers
         //request conta origem, conta destino, valor
         //repositório de transação
         [HttpPatch]
-        [Route("{id}/account")]
+        [Route("{id}")]
         public IActionResult ChangeStatus([FromServices] IChangeStatusCommand<Account> command, [FromRoute] Guid id, [FromBody] ChangeStatusRequest request)
         {
             request.Id = id;
