@@ -3,6 +3,7 @@ using BlueBank.System.Application.Responses;
 using BlueBank.Sytem.Teste.Support;
 using FluentAssertions;
 using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,6 @@ namespace BlueBank.Sytem.Teste.Api.Controller
 {
     public class AccountControllerTests : IntegrationTest
     {
-        //Name = "Teste",
-        //Telephone = "55111111111"
-
-
         private string AccountEndpoint { get; set; }
 
         public AccountControllerTests(ApiWebApplicationFactory fixture)
@@ -27,10 +24,9 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void PostAndGetById_Accounts_ValidRequest_ReturnSuccess()
         {
-
             var request = new AddAccountRequest()
             {
-                CustomerId = ,
+                CustomerId = Guid.NewGuid(),
                 Balance = 950
             };
 
@@ -47,14 +43,14 @@ namespace BlueBank.Sytem.Teste.Api.Controller
             result.Should().Be200Ok();
             getResult.Id.Should().Be(accountResult.Id);
         }
-
+        
         [Fact]
         public void PostAndRemove_Accounts_ValidRequest_ReturnSuccess()
         {
             var request = new AddAccountRequest()
             {
-                CustomerId = ,
-                Balance = 500
+                CustomerId = Guid.NewGuid(),
+            Balance = 500
             };
 
             var data = JsonData(request);
@@ -73,14 +69,14 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         {
             var postRequest = new AddAccountRequest()
             {
-                CustomerId = ,
-                Balance = 295
+                CustomerId = Guid.NewGuid(),
+            Balance = 295
             };
             var postData = JsonData(postRequest);
 
             var putRequest = new UpdateAccountRequest()
             {
-                Id = ,
+                Id = Guid.NewGuid(),
                 Balance = 100
             };
             var putData = JsonData(putRequest);
@@ -123,8 +119,8 @@ namespace BlueBank.Sytem.Teste.Api.Controller
             
             var request = new AddOperationRequest()
             {
-                AccountOrigin = ,
-                AccountRecipient = ,
+                AccountOrigin = Guid.NewGuid(),
+                AccountRecipient = Guid.NewGuid(),
                 Value = 155
             };
 
