@@ -58,6 +58,6 @@ O projeto possui os seguintes endpoints:
 | [/account/{id}](https://localhost:5001/account/{id})                 | PUT     | Update account          | 
 | [/account/{id}](https://localhost:5001/account/{id})                 | PATCH   | Update account status   | 
 | [/account/{id}](https://localhost:5001/account/{id})                 | DELETE  | Delete account          | 
-| [/account/transaction](https://localhost:5001/account/transaction)   | POST    | Create transaction      |
-| [/account/transaction](https://localhost:5001/account/transaction)   | GET     | List transactions       |
+| [/account/transaction](https://localhost:5001/account/operation)   | POST    | Create transaction      |
+| [/account/transaction](https://localhost:5001/account/operation)   | GET     | List transactions       |
 
