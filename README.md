@@ -17,7 +17,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 ### Rodando o projeto
 ```bash
 # Clone este repositório
-$ git clone https://github.com/barbarathais/desafio_dict.git
+$ git clone https://github.com/Deidimila/DesafioFinalCSharp.git
 
 # Comando para restaurar os pacotes
 dotnet restore
