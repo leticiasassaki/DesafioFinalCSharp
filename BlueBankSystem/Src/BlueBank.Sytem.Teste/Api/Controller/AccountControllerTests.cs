@@ -3,7 +3,6 @@ using BlueBank.System.Application.Responses;
 using BlueBank.Sytem.Teste.Support;
 using FluentAssertions;
 using Newtonsoft.Json;
-using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +12,10 @@ namespace BlueBank.Sytem.Teste.Api.Controller
 {
     public class AccountControllerTests : IntegrationTest
     {
+        //Name = "Teste",
+        //Telephone = "55111111111"
+
+
         private string AccountEndpoint { get; set; }
 
         public AccountControllerTests(ApiWebApplicationFactory fixture)
@@ -24,10 +27,10 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void PostAndGetById_Accounts_ValidRequest_ReturnSuccess()
         {
-            // Arrange
+
             var request = new AddAccountRequest()
             {
-                CustomerId = Guid.NewGuid(),
+                CustomerId = ,
                 Balance = 950
             };
 
@@ -48,10 +51,9 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void PostAndRemove_Accounts_ValidRequest_ReturnSuccess()
         {
-            // Arrange
             var request = new AddAccountRequest()
             {
-                CustomerId = Guid.NewGuid(),
+                CustomerId = ,
                 Balance = 500
             };
 
@@ -69,17 +71,16 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void PostAndPut_Accounts_ValidRequest_ReturnSuccess()
         {
-            // Arrange
             var postRequest = new AddAccountRequest()
             {
-                CustomerId = Guid.NewGuid(),
+                CustomerId = ,
                 Balance = 295
             };
             var postData = JsonData(postRequest);
 
             var putRequest = new UpdateAccountRequest()
             {
-                Id = Guid.NewGuid(),
+                Id = ,
                 Balance = 100
             };
             var putData = JsonData(putRequest);
@@ -119,11 +120,11 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         [Fact]
         public void Post_Operations_ValidRequest_ReturnSuccess()
         {
-            // Arrange
+            
             var request = new AddOperationRequest()
             {
-                AccountOrigin = Guid.NewGuid(),
-                AccountRecipient = Guid.NewGuid(),
+                AccountOrigin = ,
+                AccountRecipient = ,
                 Value = 155
             };
 
