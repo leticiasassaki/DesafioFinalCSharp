@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using BlueBank.System.Domain.OrderManagement.Entities;
 
 
-
 public class AccountConfiguration : IEntityTypeConfiguration<Account>
 {
     /*public void Configure(EntityTypeBuilder<Account> builder)

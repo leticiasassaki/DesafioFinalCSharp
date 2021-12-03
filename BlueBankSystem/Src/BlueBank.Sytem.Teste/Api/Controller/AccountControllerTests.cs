@@ -107,17 +107,17 @@ namespace BlueBank.Sytem.Teste.Api.Controller
         }
 
         [Fact]
-        public void GetAll_Transactions_ValidRequest_ReturnSuccess()
+        public void GetAll_Operations_ValidRequest_ReturnSuccess()
         {
             // Act
-            var result = Task.Run(async () => await _client.GetAsync($"{AccountEndpoint}/transaction")).Result;
+            var result = Task.Run(async () => await _client.GetAsync($"{AccountEndpoint}/operation")).Result;
 
             // Assert
             result.Should().Be200Ok();
         }
 
         [Fact]
-        public void Post_Transactions_ValidRequest_ReturnSuccess()
+        public void Post_Operations_ValidRequest_ReturnSuccess()
         {
             // Arrange
             var request = new AddOperationRequest()
@@ -130,7 +130,7 @@ namespace BlueBank.Sytem.Teste.Api.Controller
             var data = JsonData(request);
 
             // Act
-            var postResult = Task.Run(async () => await _client.PostAsync($"{AccountEndpoint}/transaction", data)).Result;
+            var postResult = Task.Run(async () => await _client.PostAsync($"{AccountEndpoint}/operation", data)).Result;
             var operationResult = ObjectData<AddOperationResponse>(postResult.Content.ReadAsStringAsync().Result);
             var result = Task.Run(async () => await _client.GetAsync($"{AccountEndpoint}/{operationResult.Id}")).Result;
 

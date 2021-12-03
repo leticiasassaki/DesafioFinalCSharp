@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using BlueBank.System.Domain.OrderManagement.Entities;
+
+
 namespace BlueBank.System.Data.Configuration
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
